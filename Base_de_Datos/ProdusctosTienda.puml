@@ -1,0 +1,29 @@
+@startuml
+entity CLIENTE {
+  *cod_cliente : int
+  nombre : String
+  direccion : String
+}
+
+entity VENTA {
+  *id_venta : int
+  fecha : Date
+  monto_total : double
+}
+
+entity PRODUCTO {
+  *cod_producto : int
+  nombre : String
+  precio : double
+}
+
+entity DETALLE_VENTA {
+  *id_venta : int
+  *cod_producto : int
+  cantidad : int
+}
+
+CLIENTE ||--o{ VENTA : realiza
+VENTA ||--o{ DETALLE_VENTA : incluye
+PRODUCTO ||--o{ DETALLE_VENTA : contiene
+@enduml

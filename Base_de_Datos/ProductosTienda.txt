@@ -1,0 +1,22 @@
+Ejercicio: Venta de Productos en una Tienda
+Una tienda online quiere registrar sus ventas. Cada CLIENTE puede realizar varias VENTAS. 
+Una venta está compuesta por uno o varios PRODUCTOS. De cada venta se debe registrar la 
+fecha y el monto total. De cada producto se debe registrar el código (único), nombre y precio.
+Los clientesmtienen un código (único), nombre y dirección. Se necesita registrar la cantidad 
+de cada producto que se vendió en una venta específica.
+
+Entidades y Atributos
+
+- CLIENTE: cod_cliente (PK), nombre, direccion
+- PRODUCTO: cod_producto (PK), nombre, precio
+- VENTA: id_venta (PK), fecha, monto_total
+- DETALLE_VENTA: id_venta (FK), cod_producto (FK), cantidad
+
+Relaciones
+
+CLIENTE — VENTA:
+Un cliente puede realizar varias ventas. (1:N)
+
+VENTA — PRODUCTO:
+Una venta puede incluir varios productos y un producto puede estar en varias ventas.
+→ Relación N:M con entidad intermedia DETALLE_VENTA, que además guarda la cantidad.

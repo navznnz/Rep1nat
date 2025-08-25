@@ -1,0 +1,47 @@
+Ejercicio: Sistema de Ventas
+Una empresa necesita llevar el control de proveedores, clientes, productos y ventas.
+• Un proveedor tiene un RUC, nombre, dirección, teléfono y pagina web. Un cliente también tiene RUC. 
+Nombre, dirección, pero puede tener varios teléfonos de contacto. La dirección se entiende por calle, 
+numero, comuna y ciudad.
+• Un producto tiene un ID unico., nombre, precio actual, stock y nombre del proveedor. Además se organizan 
+en categorías, y cada producto va solo en una categoría. Una categoría tiene un ID, nombre y descripción.
+• Por razones de contabilidad, se debe registrar la información de cada venta con un ID, fecha, cliente, 
+descuento y monto final. Además se debe guardar el precio al momento de la venta, la cantidad vendida y 
+el monto total del producto.
+
+1. Identificar Entidades principales
+
+PROVEEDOR, CLIENTE, PRODUCTO, CATEGORÍA, VENTA
+
+2. Identificar Atributos
+
+- PROVEEDOR: RUC (PK), nombre, dirección, teléfono, página_web, 
+- CLIENTE: RUC (PK), nombre, dirección (calle, número, comuna, ciudad) 
+teléfonos (un cliente puede tener varios → relación aparte o multivalor)
+- CATEGORÍA: id_categoria (PK), nombre, descripción
+- PRODUCTO: id_producto (PK), nombre, precio_actual, stock
+proveedor (FK → PROVEEDOR.RUC), categoría (FK → CATEGORÍA.id_categoria)
+- VENTA (Cabecera de la venta): id_venta (PK), fecha, cliente (FK → CLIENTE.RUC)
+descuento, monto_final
+- DETALLE_VENTA (entidad intermedia, porque una venta puede tener muchos productos y un producto puede aparecer en muchas ventas → relación N:M)
+id_venta (FK), id_producto (FK), precio_venta (precio del producto en ese momento), cantidad, monto_total_producto
+
+3. Identificar Relaciones
+
+PROVEEDOR — PRODUCTO
+Un proveedor ofrece muchos productos.
+(1:N)
+
+CATEGORÍA — PRODUCTO
+Una categoría tiene muchos productos.
+Un producto pertenece a una sola categoría.
+(1:N)
+
+CLIENTE — VENTA
+Un cliente puede realizar muchas ventas.
+Cada venta pertenece a un solo cliente.
+(1:N)
+
+VENTA — PRODUCTO
+Relación N:M → se crea DETALLE_VENTA.
+Una venta puede incluir varios productos, y un producto puede estar en varias ventas.

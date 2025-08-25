@@ -1,0 +1,27 @@
+@startuml
+entity ALUMNO {
+  *cod_alumno : int
+  nombre : String
+  semestre : int
+}
+
+entity PROFESOR {
+  *DNI : String
+  nombre : String
+}
+
+entity CURSO {
+  *cod_curso : int
+  nombre : String
+  creditos : int
+}
+
+entity MATRICULA {
+  *cod_alumno : int
+  *cod_curso : int
+}
+
+ALUMNO ||--o{ MATRICULA : se_matricula
+CURSO ||--o{ MATRICULA : tiene
+PROFESOR ||--o{ CURSO : dicta
+@enduml

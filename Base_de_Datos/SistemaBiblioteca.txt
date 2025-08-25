@@ -1,0 +1,16 @@
+Ejercicio: Sistema de Biblioteca
+Una biblioteca desea registrar los libros y sus autores. Un libro tiene un ISBN (único), título 
+y año de publicación. Un autor tiene un código (único), nombre y país. Un libro puede ser escrito 
+por uno o varios autores, y un autor puede haber escrito varios libros.
+
+Entidades y Atributos
+- LIBRO: ISBN (PK), título, año_publicación
+
+- AUTOR: cod_autor (PK), nombre, país
+
+Relaciones
+LIBRO — AUTOR:
+Un libro puede tener uno o varios autores, y un autor puede haber escrito varios libros.
+→ Relación N:M
+
+Se modela con una entidad intermedia LIBRO_AUTOR.

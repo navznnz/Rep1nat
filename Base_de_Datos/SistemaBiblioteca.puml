@@ -1,0 +1,21 @@
+@startuml
+entity LIBRO {
+  *ISBN : String
+  titulo : String
+  anio_publicacion : int
+}
+
+entity AUTOR {
+  *cod_autor : int
+  nombre : String
+  pais : String
+}
+
+entity LIBRO_AUTOR {
+  *ISBN : String
+  *cod_autor : int
+}
+
+LIBRO ||--o{ LIBRO_AUTOR : tiene
+AUTOR ||--o{ LIBRO_AUTOR : escribe
+@enduml

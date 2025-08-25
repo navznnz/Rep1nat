@@ -1,0 +1,63 @@
+@startuml
+
+entity PROVEEDOR {
+  *RUC : String
+  nombre : String
+  direccion : String
+  telefono : String
+  pagina_web : String
+}
+
+entity CLIENTE {
+  *RUC : String
+  nombre : String
+  calle : String
+  numero : String
+  comuna : String
+  ciudad : String
+  // teléfonos como entidad aparte
+}
+
+entity TELEFONO {
+  *id_telefono : int
+  numero : String
+}
+
+entity CATEGORIA {
+  *id_categoria : int
+  nombre : String
+  descripcion : String
+}
+
+entity PRODUCTO {
+  *id_producto : int
+  nombre : String
+  precio_actual : double
+  stock : int
+}
+
+entity VENTA {
+  *id_venta : int
+  fecha : Date
+  descuento : double
+  monto_final : double
+}
+
+entity DETALLE_VENTA {
+  *id_venta : int
+  *id_producto : int
+  precio_venta : double
+  cantidad : int
+  monto_total_producto : double
+}
+
+' Relaciones
+PROVEEDOR ||--o{ PRODUCTO : ofrece
+CATEGORIA ||--o{ PRODUCTO : contiene
+CLIENTE ||--o{ VENTA : realiza
+CLIENTE ||--o{ TELEFONO : tiene
+
+VENTA ||--o{ DETALLE_VENTA : incluye
+PRODUCTO ||--o{ DETALLE_VENTA : pertenece
+
+@enduml

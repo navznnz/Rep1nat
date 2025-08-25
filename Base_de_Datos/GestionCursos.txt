@@ -1,0 +1,20 @@
+Ejercicio: Gestión de cursos en una Universidad
+Se necesita modelar la información de una universidad. Un ALUMNO puede matricularse en varios CURSOS. 
+Un CURSO es dictado por un único PROFESOR. Los alumnos tienen un código (único), nombre y semestre. 
+Los profesores tienen un DNI (único) y nombre. Los cursos tienen un código (único), nombre y número 
+de créditos.
+
+Entidades y Atributos
+- ALUMNO: cod_alumno (PK), nombre, semestre
+- PROFESOR: DNI (PK), nombre
+- CURSO: cod_curso (PK), nombre, creditos
+
+Relaciones
+
+ALUMNO — CURSO:
+Un alumno se matricula en varios cursos y un curso puede tener varios alumnos.
+→ Relación N:M → se crea MATRICULA.
+
+CURSO — PROFESOR:
+Un curso es dictado por un único profesor, pero un profesor puede dictar varios cursos.
+→ Relación 1:N.
