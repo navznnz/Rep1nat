@@ -1,9 +1,5 @@
-package com.mycompany.docente;
+package POO.Guia2;
 
-/**
- *
- * @author LAB-USR-AREQUIPA
- */
 public class Docente {
     private String nombre;
     private String apellido;
