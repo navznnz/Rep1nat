@@ -1,0 +1,133 @@
+\section*{Resolución de los Cálculos}
+
+\subsection*{1. Medias y Varianzas (estimadas de la muestra)}
+
+\textbf{Fórmulas:}
+\[
+\bar x = \frac{1}{n}\sum_{i=1}^n x_i
+\qquad\qquad
+s^2 = \frac{1}{n-1}\sum_{i=1}^n (x_i-\bar x)^2
+\]
+
+\textbf{Resultados:}
+\begin{itemize}
+    \item Producción: $\bar x_{\text{prod}} = 17{,}271.64$, \quad $s^2_{\text{prod}} = 18{,}861{,}987.59$
+    \item Despacho: $\bar x_{\text{desp}} = 16{,}138.81$, \quad $s^2_{\text{desp}} = 36{,}606{,}292.60$
+    \item Paradas: $\bar x_{\text{par}} = 436.85$, \quad $s^2_{\text{par}} = 5{,}622.17$
+    \item Unidades: $\bar x_{\text{uni}} = 20.66$, \quad $s^2_{\text{uni}} = 60.75$
+\end{itemize}
+
+---
+
+\subsection*{2. Distribuciones Muestrales}
+
+\subsubsection*{2.1. Media}
+\[
+\bar X \;\approx\; \mathcal N\!\Big(\mu,\;\frac{\sigma^2}{n}\Big), 
+\qquad
+\text{EE}(\bar X)=\frac{s}{\sqrt{n}}
+\]
+
+\[
+\text{EE}(\bar X_{\text{prod}})=\sqrt{\tfrac{18{,}861{,}987.59}{190}}=315.08
+\]
+\[
+\text{EE}(\bar X_{\text{desp}})=\sqrt{\tfrac{36{,}606{,}292.60}{190}}=438.94
+\]
+
+\subsubsection*{2.2. Diferencia de medias (Producción – Despacho)}
+\[
+(\bar X_1-\bar X_2)\;\approx\;\mathcal N\!\Big(\mu_1-\mu_2,\;\tfrac{s_1^2}{n_1}+\tfrac{s_2^2}{n_2}\Big)
+\]
+
+\[
+\bar x_{\text{prod}}-\bar x_{\text{desp}}=17{,}271.64-16{,}138.81=1{,}132.83
+\]
+
+\[
+\text{EE}=\sqrt{\tfrac{18{,}861{,}987.59}{190}+\tfrac{36{,}606{,}292.60}{190}}
+=\sqrt{99{,}760.99+192{,}664.70}=540.31
+\]
+
+\[
+(\bar X_{\text{prod}}-\bar X_{\text{desp}})\;\approx\;\mathcal N(1{,}132.83,\;540.31^2)
+\]
+
+\subsubsection*{2.3. Proporción y diferencia de proporciones}
+\[
+\hat p \;\approx\; \mathcal N\!\Big(p,\;\tfrac{p(1-p)}{n}\Big),
+\qquad
+\text{EE}(\hat p)=\sqrt{\tfrac{\hat p(1-\hat p)}{n}}
+\]
+
+En la muestra:
+\[
+\hat p_4=\hat p_5=\tfrac{95}{190}=0.50
+\]
+
+\[
+\text{EE}(\hat p_4)=\sqrt{\tfrac{0.5\cdot 0.5}{190}}=0.03627,
+\qquad
+\text{EE}(\hat p_5)=0.03627
+\]
+
+Diferencia de proporciones:
+\[
+\hat p_4-\hat p_5=0.00,
+\qquad
+\text{EE}(\hat p_4-\hat p_5)=\sqrt{\tfrac{0.5\cdot 0.5}{190}+\tfrac{0.5\cdot 0.5}{190}}=0.05130
+\]
+
+---
+
+\subsection*{3. Intervalos de Confianza (95\%)}
+
+Con $z_{0.975}=1.96$:
+
+\subsubsection*{3.1. IC para la media}
+\[
+\bar x \pm z\;\tfrac{s}{\sqrt{n}}
+\]
+
+\[
+IC_{95\%}(\bar X_{\text{prod}}) = 17{,}271.64 \pm 1.96(315.08) = (16{,}654.09,\;17{,}889.18)
+\]
+\[
+IC_{95\%}(\bar X_{\text{desp}}) = 16{,}138.81 \pm 1.96(438.94) = (15{,}278.49,\;16{,}999.12)
+\]
+
+\subsubsection*{3.2. IC para la diferencia de medias}
+\[
+(\bar x_{\text{prod}}-\bar x_{\text{desp}}) \pm z\;\sqrt{\tfrac{s_1^2}{n_1}+\tfrac{s_2^2}{n_2}}
+\]
+\[
+1{,}132.83 \pm 1.96(540.31) = (73.84,\;2{,}191.85)
+\]
+
+\subsubsection*{3.3. IC para la proporción}
+\[
+\hat p \pm z\;\sqrt{\tfrac{\hat p(1-\hat p)}{n}}
+\]
+
+\[
+IC_{95\%}(\hat p_4) = 0.50 \pm 1.96(0.03627) = (0.4290,\;0.5711)
+\]
+\[
+IC_{95\%}(\hat p_5) = 0.50 \pm 1.96(0.03627) = (0.4290,\;0.5711)
+\]
+
+\subsubsection*{3.4. IC para la diferencia de proporciones}
+\[
+(\hat p_4-\hat p_5) \pm z\;\sqrt{\tfrac{\hat p_1(1-\hat p_1)}{n_1}+\tfrac{\hat p_2(1-\hat p_2)}{n_2}}
+\]
+\[
+0.00 \pm 1.96(0.05130) = (-0.10055,\;0.10055)
+\]
+
+---
+
+\subsection*{4. Interpretación}
+\begin{itemize}
+    \item El intervalo para la diferencia de medias no incluye el cero, lo que confirma que la producción supera significativamente al despacho promedio.
+    \item En los turnos 4 y 5, la diferencia de proporciones sí incluye el cero, por lo que no existen diferencias estadísticamente significativas en la distribución de registros entre turnos.
+\end{itemize}
