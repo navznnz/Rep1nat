@@ -1,0 +1,3 @@
+# Ignorar archivos de sistema y compilados
+.DS_Store
+*.class
